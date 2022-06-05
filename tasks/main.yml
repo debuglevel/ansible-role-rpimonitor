@@ -49,6 +49,22 @@
     regexp: '^daemon.user'
     insertafter: '#daemon.user'
     line: daemon.user={{ rpimonitor_user }}
+- name: Ensure port
+  ansible.builtin.lineinfile:
+    path: "{{ rpimonitor_daemon_conf_file }}"
+    regexp: '^daemon.port'
+    insertafter: '#daemon.port'
+    line: daemon.port={{ rpimonitor_port }}
+  notify: Restart RPi-Monitor
+
+- name: Ensure bind address
+  ansible.builtin.lineinfile:
+    path: "{{ rpimonitor_daemon_conf_file }}"
+    regexp: '^daemon.addr'
+    insertafter: '#daemon.addr'
+    line: daemon.addr={{ rpimonitor_addr }}
+  notify: Restart RPi-Monitor
+
 - name: Detect if WLAN interface exists
   set_fact: rpimonitor_wlan=true
   when: 
