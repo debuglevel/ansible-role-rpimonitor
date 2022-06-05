@@ -8,3 +8,9 @@
   become: yes
   command:
     cmd: /etc/init.d/rpimonitor install_auto_package_status_update
+
+- name: Restart RPi-Monitor
+  become: true
+  service:
+    name: rpimonitor
+    state: restarted

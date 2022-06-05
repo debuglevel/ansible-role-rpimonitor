@@ -49,3 +49,17 @@
     regexp: '^daemon.user'
     insertafter: '#daemon.user'
     line: daemon.user={{ rpimonitor_user }}
+- name: Detect if WLAN interface exists
+  set_fact: rpimonitor_wlan=true
+  when: 
+    - '"wlan0" in ansible_interfaces'
+  notify: Restart RPi-Monitor
+
+- name: Ensure WLAN monitor
+  when: rpimonitor_wlan
+  ansible.builtin.lineinfile:
+    path: /etc/rpimonitor/template/raspbian.conf
+    regexp: '^#?include=/etc/rpimonitor/template/wlan.conf$'
+    line: 'include=/etc/rpimonitor/template/wlan.conf'
+    state: present
+  notify: Restart RPi-Monitor
