@@ -1,33 +1,27 @@
 ---
-# tasks file for debuglevel.rpimonitor
-- name: Install dirmgt acting as pre-requisite
-  apt:
-    name: dirmngr
-    update_cache: yes
-
-- name: Install RPi-monitor public GPG key
+- name: Ensure public GPG key is added
   apt_key:
     keyserver: "{{ rpimonitor_apt_key_server }}"
     id: "{{ rpimonitor_apt_key_id }}"
 
-- name: Install APT repository
+- name: Ensure APT repository is added
   apt_repository:
     repo: "{{ rpimonitor_repo }}"
     filename: rpimonitor
 
-- name: Create rpimonitor group service account
+- name: Ensure rpimonitor group service account exists
   group:
     name: "{{ rpimonitor_group }}"
     system: yes
 
-- name: Create rpimonitor user service account
+- name: Ensure rpimonitor user service account exists
   user:
     name: "{{ rpimonitor_user }}"
     create_home: no
     system: yes
     group: "{{ rpimonitor_group }}"
 
-- name: Install RPI-Monitor
+- name: Ensure RPI-Monitor is installed
   apt:
     update_cache: yes
     name: rpimonitor
