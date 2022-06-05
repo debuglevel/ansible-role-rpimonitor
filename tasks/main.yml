@@ -88,7 +88,7 @@
 
 - name: Ensure WLAN monitor
   become: true
-  when: rpimonitor_wlan
+  when: rpimonitor_wlan is defined and rpimonitor_wlan == true  # TODO: seems wrong; should be false if no wlan0 was found - not undefined
   ansible.builtin.lineinfile:
     path: /etc/rpimonitor/template/raspbian.conf
     regexp: '^#?include=/etc/rpimonitor/template/wlan.conf$'
