@@ -1,5 +1,4 @@
 ---
-# defaults file for debuglevel.rpimonitor
 rpimonitor_user: rpimonitor
 rpimonitor_group: rpimonitor
 rpimonitor_port: 8888

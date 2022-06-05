@@ -1,5 +1,4 @@
 ---
-# handlers file for debuglevel.rpimonitor
 - name: Update rpi-monitor
   become: yes
   command:
