@@ -1,10 +1,10 @@
 ---
-- name: Update rpi-monitor
+- name: Update packages status
   become: yes
   command:
     cmd: /etc/init.d/rpimonitor update
 
-- name: Install auto-package update
+- name: Ensure packages-status APT-Hook
   become: yes
   command:
     cmd: /etc/init.d/rpimonitor install_auto_package_status_update

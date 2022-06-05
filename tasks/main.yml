@@ -26,8 +26,8 @@
     update_cache: yes
     name: rpimonitor
   notify:
-    - Update rpi-monitor
-    - Install auto-package update
+    - Update packages status
+    - Ensure packages-status APT-Hook
 
 - name: Ensure embedded web server is not started
   ansible.builtin.lineinfile:
