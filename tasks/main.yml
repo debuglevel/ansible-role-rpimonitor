@@ -77,7 +77,7 @@
     path: "{{ rpimonitor_daemon_conf_file }}"
     regexp: '^daemon.addr'
     insertafter: '#daemon.addr'
-    line: daemon.addr={{ rpimonitor_addr }}
+    line: daemon.addr={{ rpimonitor_ip_addr }}
   notify: Restart RPi-Monitor
 
 - name: Detect if WLAN interface exists
