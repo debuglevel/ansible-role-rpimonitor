@@ -11,4 +11,4 @@
         var: ansible_os_family
 
   roles:
-    - role: kitos9112.rpimonitor
+    - role: debuglevel.rpimonitor

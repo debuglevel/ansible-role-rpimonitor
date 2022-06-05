@@ -22,8 +22,8 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory. <-- Credits to geerlingguy
   - cd ../
-  - mv ansible-role-$ROLE_NAME kitos9112.$ROLE_NAME
-  - cd kitos9112.$ROLE_NAME
+  - mv ansible-role-$ROLE_NAME debuglevel.$ROLE_NAME
+  - cd debuglevel.$ROLE_NAME
   - echo "Executing CI for $ROLE_NAME"
 
 script:

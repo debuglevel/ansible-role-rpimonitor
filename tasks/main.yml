@@ -1,5 +1,5 @@
 ---
-# tasks file for kitos9112.rpimonitor
+# tasks file for debuglevel.rpimonitor
 - name: Install dirmgt acting as pre-requisite
   apt:
     name: dirmngr

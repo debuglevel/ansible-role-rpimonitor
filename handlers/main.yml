@@ -1,5 +1,5 @@
 ---
-# handlers file for kitos9112.rpimonitor
+# handlers file for debuglevel.rpimonitor
 - name: Update rpi-monitor
   become: yes
   command:
