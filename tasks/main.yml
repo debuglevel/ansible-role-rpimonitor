@@ -35,6 +35,7 @@
     regexp: '^daemon.noserver'
     insertafter: '#daemon.noserver'
     line: daemon.noserver=1
+  notify: Restart RPi-Monitor  # TODO: Don't know if Ansible collects notifies and runs them once or simply triggers them each time
 
 - name: Ensure service group is used
   ansible.builtin.lineinfile:
@@ -42,6 +43,7 @@
     regexp: '^daemon.group'
     insertafter: '#daemon.group'
     line: daemon.group={{ rpimonitor_group }}
+  notify: Restart RPi-Monitor
 
 - name: Ensure service user is used
   ansible.builtin.lineinfile:
@@ -49,6 +51,8 @@
     regexp: '^daemon.user'
     insertafter: '#daemon.user'
     line: daemon.user={{ rpimonitor_user }}
+  notify: Restart RPi-Monitor
+
 - name: Ensure port
   ansible.builtin.lineinfile:
     path: "{{ rpimonitor_daemon_conf_file }}"
