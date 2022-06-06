@@ -80,6 +80,15 @@
     line: daemon.addr={{ rpimonitor_ip_addr }}
   notify: Restart RPi-Monitor
 
+- name: Ensure wired network monitor
+  become: true
+  ansible.builtin.template:
+    src: templates/network.conf.j2
+    dest: /etc/rpimonitor/template/network.conf
+    owner: root
+    group: root
+    mode: u=rw,g=rw,o=r
+
 - name: Detect if WLAN interface exists
   set_fact: rpimonitor_wlan=true
   when: 
