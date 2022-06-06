@@ -28,6 +28,7 @@ rpimonitor_user: rpimonitor
 rpimonitor_group: rpimonitor
 rpimonitor_port: 8888
 rpimonitor_ip_addr: 0.0.0.0
+rpimonitor_network_interface_wired: eth0
 ```
 
 ## Dependencies
