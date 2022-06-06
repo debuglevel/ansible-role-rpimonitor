@@ -4,4 +4,4 @@ rpimonitor_repo: "deb https://giteduberger.fr rpimonitor/"
 rpimonitor_apt_key_server: "keyserver.ubuntu.com"
 rpimonitor_apt_key_id: "2C0D3C0F"
 rpimonitor_daemon_conf_file: "/etc/rpimonitor/daemon.conf"
-rpimonitor_network_interface_wired: {{ ansible_default_ipv4.interface }}  # Interface to be monitored in network.conf
+rpimonitor_network_interface_wired: "{{ ansible_default_ipv4.interface }}"  # Interface to be monitored in network.conf
